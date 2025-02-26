@@ -1,0 +1,12 @@
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.AssemblyInfoInputs.cache
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.AssemblyInfo.cs
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.csproj.CoreCompileInputs.cache
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\bin\Debug\net8.0\TeaTimeDemo.Models.deps.json
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\bin\Debug\net8.0\TeaTimeDemo.Models.dll
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\bin\Debug\net8.0\TeaTimeDemo.Models.pdb
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.csproj.AssemblyReference.cache
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.dll
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\refint\TeaTimeDemo.Models.dll
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.pdb
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\ref\TeaTimeDemo.Models.dll
