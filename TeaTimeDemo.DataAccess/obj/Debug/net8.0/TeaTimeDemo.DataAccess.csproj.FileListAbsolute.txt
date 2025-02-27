@@ -17,3 +17,4 @@ C:\程式設計\ASP.NET\TeaTimeDemo.DataAccess\obj\Debug\net8.0\refint\TeaTimeDe
 C:\程式設計\ASP.NET\TeaTimeDemo.DataAccess\obj\Debug\net8.0\TeaTimeDemo.DataAccess.pdb
 C:\程式設計\ASP.NET\TeaTimeDemo.DataAccess\obj\Debug\net8.0\TeaTimeDemo.DataAccess.genruntimeconfig.cache
 C:\程式設計\ASP.NET\TeaTimeDemo.DataAccess\obj\Debug\net8.0\ref\TeaTimeDemo.DataAccess.dll
+C:\程式設計\ASP.NET\TeaTimeDemo.DataAccess\obj\Debug\net8.0\TeaTimeDemo.DataAccess.sourcelink.json

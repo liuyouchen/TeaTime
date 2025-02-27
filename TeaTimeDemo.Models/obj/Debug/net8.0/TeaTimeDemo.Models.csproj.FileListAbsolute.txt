@@ -10,3 +10,4 @@ C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.d
 C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\refint\TeaTimeDemo.Models.dll
 C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.pdb
 C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\ref\TeaTimeDemo.Models.dll
+C:\程式設計\ASP.NET\TeaTimeDemo.Models\obj\Debug\net8.0\TeaTimeDemo.Models.sourcelink.json
