@@ -2,7 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TeaTimeDemo.Models;
 
-namespace TeaTimeDemo.Controllers;
+namespace TeaTimeDemo.Areas.Customer.Controllers;
+[Area("Customer")]
 
 public class HomeController : Controller
 {

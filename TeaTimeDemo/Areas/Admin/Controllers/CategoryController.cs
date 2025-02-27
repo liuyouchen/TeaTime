@@ -3,8 +3,9 @@ using TeaTimeDemo.DataAccess.Data;
 using TeaTimeDemo.DataAccess.Repository.IRepository;
 using TeaTimeDemo.Models;
 
-namespace TeaTimeDemo.Controllers
+namespace TeaTimeDemo.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;//application connectobject
