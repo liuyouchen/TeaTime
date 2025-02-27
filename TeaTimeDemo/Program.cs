@@ -3,12 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using TeaTimeDemo.DataAccess.Repository.IRepository;
 using TeaTimeDemo.DataAccess.Migrations;
 using TeaTimeDemo.DataAccess.Repository;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 //webhost
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 //use sqlserver as db
 //register applicationdbcontext to the container
@@ -26,7 +29,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 //https staticfile add file set route
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 //authorization
 
@@ -36,6 +39,6 @@ app.MapControllerRoute(
 //default router struct
 app.Run();
 //start
-//µù¥U¡G±z³q¹L builder.Services.AddScoped<IProductRepository, ProductRepository>() ±N IProductRepository ¬M®g¨ì ProductRepository Ãþ¡C
-//±±¨î¾¹¨Ï¥Î¡G·í ProductController ³Q³Ð«Ø®É¡ADI ®e¾¹·|ÀË¬d¥¦ªº«Øºc¨ç¼Æ¡Aµo²{»Ý­n¤@­Ó IProductRepository ¹ê¨Ò¡C
-//®e¾¹ª`¤J¡G®e¾¹®Ú¾Úµù¥Uªº«H®§³Ð«Ø ProductRepository ªº¹ê¨Ò¡A¨Ã±N¥¦ª`¤J¨ì ProductController ¤¤¡C
+//ï¿½ï¿½ï¿½Uï¿½Gï¿½zï¿½qï¿½L builder.Services.AddScoped<IProductRepository, ProductRepository>() ï¿½N IProductRepository ï¿½Mï¿½gï¿½ï¿½ ProductRepository ï¿½ï¿½ï¿½C
+//ï¿½ï¿½ï¿½î¾¹ï¿½Ï¥Î¡Gï¿½ï¿½ ProductController ï¿½Qï¿½Ð«Ø®É¡ADI ï¿½eï¿½ï¿½ï¿½|ï¿½Ë¬dï¿½ï¿½ï¿½ï¿½ï¿½Øºcï¿½ï¿½Æ¡Aï¿½oï¿½{ï¿½Ý­nï¿½@ï¿½ï¿½ IProductRepository ï¿½ï¿½Ò¡C
+//ï¿½eï¿½ï¿½ï¿½`ï¿½Jï¿½Gï¿½eï¿½ï¿½ï¿½Ú¾Úµï¿½ï¿½Uï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½Ð«ï¿½ ProductRepository ï¿½ï¿½ï¿½ï¿½Ò¡Aï¿½Ã±Nï¿½ï¿½ï¿½`ï¿½Jï¿½ï¿½ ProductController ï¿½ï¿½ï¿½C

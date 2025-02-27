@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeaTimeDemo.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2b5c34537bb217bd09009a08f9fb0ea63a085d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cbd4a33a91cc994002a8bc0b887c0b191ac9544d")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeaTimeDemo.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeaTimeDemo.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
