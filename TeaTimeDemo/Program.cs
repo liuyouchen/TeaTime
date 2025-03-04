@@ -3,15 +3,30 @@ using Microsoft.EntityFrameworkCore;
 using TeaTimeDemo.DataAccess.Repository.IRepository;
 using TeaTimeDemo.DataAccess.Migrations;
 using TeaTimeDemo.DataAccess.Repository;
+using TeaTimeDemo.Utility;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 //webhost
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-//use sqlserver as db
 //register applicationdbcontext to the container
+//use sqlserver as db
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddRazorPages();
+//use identityframecore page
 var app = builder.Build();
 //mvc struction
 // Configure the HTTP request pipeline.
@@ -26,9 +41,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 //https staticfile add file set route
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 //authorization
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
@@ -36,6 +52,6 @@ app.MapControllerRoute(
 //default router struct
 app.Run();
 //start
-//µù¥U¡G±z³q¹L builder.Services.AddScoped<IProductRepository, ProductRepository>() ±N IProductRepository ¬M®g¨ì ProductRepository Ãş¡C
-//±±¨î¾¹¨Ï¥Î¡G·í ProductController ³Q³Ğ«Ø®É¡ADI ®e¾¹·|ÀË¬d¥¦ªº«Øºc¨ç¼Æ¡Aµo²{»İ­n¤@­Ó IProductRepository ¹ê¨Ò¡C
-//®e¾¹ª`¤J¡G®e¾¹®Ú¾Úµù¥Uªº«H®§³Ğ«Ø ProductRepository ªº¹ê¨Ò¡A¨Ã±N¥¦ª`¤J¨ì ProductController ¤¤¡C
+// è¨»å†Šï¼šä½ é€é builder.Services.AddScoped<IProductRepository, ProductRepository>() ä¾†è¨»å†Š IProductRepository å°æ‡‰åˆ°å…·é«”çš„ ProductRepository é¡åˆ¥ã€‚
+// ä¾è³´æ³¨å…¥ä½¿ç”¨ï¼šç•¶ ProductController éœ€è¦ IProductRepository æ™‚ï¼ŒDI å®¹å™¨æœƒæª¢æŸ¥å·²è¨»å†Šçš„é¡åˆ¥ï¼Œä¸¦æä¾›ä¸€å€‹ ProductRepository å¯¦ä¾‹ã€‚
+// å»ºæ§‹å‡½å¼æ³¨å…¥ï¼šç•¶ä½ åœ¨ ProductController çš„å»ºæ§‹å‡½å¼ä¸­å®£å‘Šä¸€å€‹ IProductRepository åƒæ•¸æ™‚ï¼ŒASP.NET Core æœƒè‡ªå‹•å°‡ ProductRepository çš„å¯¦ä¾‹å‚³å…¥ã€‚
