@@ -22,7 +22,7 @@ function loadDataTable() {
                     <a onClick=Delete('/admin/store/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
                     </div>`
                 },
-                "width": "15%"
+                "width": "25%"
             }
         ]
     });
