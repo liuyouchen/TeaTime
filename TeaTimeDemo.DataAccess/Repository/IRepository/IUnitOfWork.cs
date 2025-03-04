@@ -10,6 +10,7 @@ namespace TeaTimeDemo.DataAccess.Repository.IRepository
     {
         ICategoryRepository Category { get; } //in the same floder can direct use
         IProductRepository Product { get; } //use Interface because need to have more flexable 
+        IStoreRepository Store { get; }
         void Save();
     }
 }

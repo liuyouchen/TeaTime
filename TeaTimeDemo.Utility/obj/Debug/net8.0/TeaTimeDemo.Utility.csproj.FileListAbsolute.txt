@@ -10,3 +10,4 @@ C:\程式設計\ASP.NET\TeaTimeDemo.Utility\obj\Debug\net8.0\refint\TeaTimeDemo.
 C:\程式設計\ASP.NET\TeaTimeDemo.Utility\obj\Debug\net8.0\TeaTimeDemo.Utility.pdb
 C:\程式設計\ASP.NET\TeaTimeDemo.Utility\obj\Debug\net8.0\ref\TeaTimeDemo.Utility.dll
 C:\程式設計\ASP.NET\TeaTimeDemo.Utility\obj\Debug\net8.0\TeaTimeDemo.Utility.sourcelink.json
+C:\程式設計\ASP.NET\TeaTimeDemo.Utility\obj\Debug\net8.0\TeaTimeDemo.Utility.csproj.AssemblyReference.cache
