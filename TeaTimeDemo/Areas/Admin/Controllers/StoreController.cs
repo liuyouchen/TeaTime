@@ -91,7 +91,7 @@ namespace TeaTimeDemo.Areas.Admin.Controllers
             else
             {
                 Store storeObj = _unitOfWork.Store.Get(u => u.Id == id);
-                return View(storeObj);
+                return View(storeObj);//view model
             }
         }
         [HttpPost]
