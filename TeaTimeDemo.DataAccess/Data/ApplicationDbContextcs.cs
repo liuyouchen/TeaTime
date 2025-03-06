@@ -16,8 +16,10 @@ namespace TeaTimeDemo.DataAccess.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; } //default is identityuser because we modify some cloumn now name applicationuser
+        public DbSet<ShoppingCart> shoppingCarts { get; set; }
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         //Dbset is table Dbcontext is application connect db object
-        //dbcontext.dbset<T>
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

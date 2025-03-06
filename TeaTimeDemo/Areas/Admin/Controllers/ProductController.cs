@@ -18,9 +18,11 @@ namespace TeaTimeDemo.Areas.Admin.Controllers
         private readonly IUnitOfWork _unitOfWork;//application connectobject
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(IUnitOfWork unitOfWork) //constructor: applicationdbcontext(need register) use DI to this controller
+        public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment) //constructor: applicationdbcontext(need register) use DI to this controller
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
+
         }
         public IActionResult Index()
         {
@@ -106,7 +108,6 @@ namespace TeaTimeDemo.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        // 本次修改部分
         public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
             if (ModelState.IsValid)

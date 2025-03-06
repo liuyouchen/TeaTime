@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using TeaTimeDemo.DataAccess.Repository.IRepository;
 using TeaTimeDemo.Models;
@@ -24,8 +26,13 @@ public class HomeController : Controller
     }
     public IActionResult Details(int productId)
     {
-        Product product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category");
-        return View(product);
+        ShoppingCart cart = new()
+        {
+            Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category"),
+            Count = 1,
+            ProductId = productId
+        };
+        return View(cart);
     }
 
 
@@ -38,5 +45,28 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+    [HttpPost]
+    [Authorize] // 是否登入
+    public IActionResult Details(ShoppingCart shoppingCart)
+    {
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var userId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+        shoppingCart.ApplicationUserId = userId;
+
+        ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.Get(u => u.ApplicationUser.Id == userId && u.ProductId == shoppingCart.ProductId && u.Ice == shoppingCart.Ice && u.Sweetness == shoppingCart.Sweetness);
+        if (cartFromDb != null)
+        {
+            cartFromDb.Count += shoppingCart.Count;
+            _unitOfWork.ShoppingCart.Update(cartFromDb);
+        }
+        else
+        {
+            _unitOfWork.ShoppingCart.Add(shoppingCart);
+        }
+        TempData["success"] = "加入購物車成功！";
+        _unitOfWork.Save();
+        return RedirectToAction(nameof(Index));
     }
 }
